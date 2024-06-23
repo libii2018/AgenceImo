@@ -15,7 +15,8 @@
 
     <div class="mt-4">
       <h4>Interesse par ce bien ?</h4>
-      <form action="" method="post">
+      @include('shared.flash')
+      <form action="{{ route('property.contact', $property) }}" method="post">
         @csrf
         <div class="row">
           @include('shared.input', ['class' => 'col', 'name' => 'firstname', 'label' => 'Prenom'])
@@ -26,9 +27,9 @@
           @include('shared.input', ['type' => 'email', 'class' => 'col', 'name' => 'email', 'label' => 'Email'])
         </div>
         @include('shared.input', ['type' => 'textarea', 'class' => 'col', 'name' => 'message', 'label' => 'Votre message'])
-        <div>
+        <button>
           <div class="btn btn-primary">Nous contacter</div>
-        </div>
+        </button>
       </form>
     </div>
     <div class="mt-4">
