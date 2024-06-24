@@ -8,6 +8,13 @@
   <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.bootstrap5.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
   <title>@yield('title') | Administration</title>
+  <style>
+    @layer reset {
+      button {
+        all: unset;
+      }
+    }
+  </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
@@ -29,6 +36,19 @@
             <a href="{{ route('admin.option.index') }}" @class(['nav-link', 'active' => str_contains($route,'.option')])>Gerer les options</a>
           </li>
         </ul>
+        <div class="ms-auto">
+          @auth
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <form action="{{ route('logout') }}" method="post">
+                  @csrf
+                  @method('delete')
+                  <button class="nav-link">Se deconnecter</button>
+                </form>
+              </li>
+            </ul>
+          @endauth
+        </div>
       </div>
       </div>
     </nav>
