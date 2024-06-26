@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Option;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Admin\PropertyFormRequest;
-use App\Models\Option;
 
 class PropertyController extends Controller
 {
@@ -56,6 +57,7 @@ class PropertyController extends Controller
      */
     public function edit(Property $property)
     {
+        // dd(Auth::user()->can('delete',$property));
         return view('admin.properties.form',[
             'property' => $property,
             'options' => Option::pluck('name','id')

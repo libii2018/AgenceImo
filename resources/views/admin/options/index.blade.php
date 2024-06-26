@@ -23,11 +23,13 @@
         <td>
           <div class="d-flex gap-2 w-100 justify-content-end">
             <a href="{{ route('admin.option.edit', $option) }}" class="btn btn-primary">Editer</a>
+            @can("delete", $property)  
             <form action="{{ route('admin.option.destroy', $option) }}" method="POST">
               @csrf
               @method('delete')
               <button class="btn btn-danger">Supprimer</button>
             </form>
+            @endcan
           </div>
         </td>
       </tr>

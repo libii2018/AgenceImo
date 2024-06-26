@@ -2,9 +2,10 @@
 
 @section('content')
 
-  <x-alert type="danger" class="fw-bold">
+  {{-- <x-alert type="danger" class="fw-bold">
     Des informations
-  </x-alert>
+  </x-alert> --}}
+  <x-weather></x-weather>
 
   <div class="bg-light p-5 mb-5 text-center">
     <div class="container">
